@@ -4,313 +4,234 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Quiz Website</title>
-    <!-- <link rel="stylesheet" href="style.css"> -->
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-<style>
-    * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(90deg, #a4d9ff, #f0b3fa);
+            color: #333;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            padding: 1rem;
+        }
 
-body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background: linear-gradient(90deg, #a4d9ff, #f0b3fa);
-    color: #333;
-    padding: 20px;
-}
+        .quiz {
+            width: 100%;
+            max-width: 600px;
+            background-color: #fff;
+            border-radius: 1rem;
+            box-shadow: 0 0 12px rgba(0, 0, 0, 0.1);
+            padding: 2rem;
+        }
 
-.quiz-section {
-    /* max-width: 600px;
-    margin: auto;
-    /* background-color: #fff; 
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); */
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    height: 100vh;
-    width: 100%;
-}
+        .question {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
 
-.quiz{
-    height: 25rem;
-    width: 35rem;
-    margin: auto;
-    background-color: #ffffff;
-    border-radius: 10px;
-    box-shadow: 0 0 12px rgba(0, 0, 0, 0.05);
-}
+        ul {
+            list-style: none;
+            padding: 0;
+        }
 
-.question {
-    font-size: 1.5rem;
-    margin-bottom: 5px;
-    padding: 10px 10px;
-}
+        li {
+            margin: 10px 0;
+        }
 
-.answer {
-    font-size: 1.2rem;
-    margin-bottom: 5px;
-    padding: 5px 5px;
-}
+        label {
+            font-size: 1.1rem;
+            margin-left: 0.5rem;
+        }
 
-ul{
-    padding: 1rem;
-}
+        .btns {
+            text-align: right;
+            margin-top: 1.5rem;
+        }
 
-li{
-    list-style: none;
-    margin: 5px 0;
-    padding: 0.9rem;
-    background-color: #ffffff;
-    border: 1px solid #9c9c9c;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-    width: 20rem;
-    border-radius: 25px;
-    margin-left: 1rem;
-}
+        .btn {
+            background-color: #29b9ad;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 1rem;
+            transition: background-color 0.3s ease;
+        }
 
-.btns {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    margin-top: 20px;
-}
+        .btn:hover {
+            background-color: #239c91;
+        }
 
-.btn{
-    background-color: #29b9ad;
-    color: white;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 6px;
-    cursor: pointer;
-    font-size: 1rem;
-    transition: background-color 0.3s ease;
-    margin-left: 2.5rem;
-}
-
-
-</style>
-
+        @media (max-width: 600px) {
+            .quiz {
+                padding: 1rem;
+            }
+            .question {
+                font-size: 1.25rem;
+            }
+        }
+    </style>
 </head>
 <body>
-    <div class="quiz-section">
-        <div class="quiz">
-            <h2 class="question" id="question">Quiz Question</h2>
-                <hr>
-                    <ul>
-                        <li>
-                            <input type="radio" name="answer" class="answer" id="a">
-                            <label for="a" id="option_1">quiz Option</label>
-                        </li> 
-
-                        <li>
-                            <input type="radio" name="answer" class="answer" id="b">
-                            <label for="b" id="option_2">quiz Option</label>
-                        </li> 
-
-                        <li>
-                            <input type="radio" name="answer" class="answer" id="c">
-                            <label for="c" id="option_3">quiz Option</label>
-                        </li> 
-
-                        <li>
-                            <input type="radio" name="answer" class="answer" id="d">
-                            <label for="d" id="option_4">quiz Option</label>
-                        </li> 
-                    </ul>
-                <hr>
-            <div class="btns">
-                <button class="btn" id="submit">Submit</button>
-            </div>
+    <div class="quiz">
+        <h2 class="question" id="question">Quiz Question</h2>
+        <hr>
+        <ul>
+            <li>
+                <input type="radio" name="answer" class="answer" id="a">
+                <label for="a" id="option_1">Option A</label>
+            </li>
+            <li>
+                <input type="radio" name="answer" class="answer" id="b">
+                <label for="b" id="option_2">Option B</label>
+            </li>
+            <li>
+                <input type="radio" name="answer" class="answer" id="c">
+                <label for="c" id="option_3">Option C</label>
+            </li>
+            <li>
+                <input type="radio" name="answer" class="answer" id="d">
+                <label for="d" id="option_4">Option D</label>
+            </li>
+        </ul>
+        <hr>
+        <div class="btns">
+            <button class="btn" id="submit">Submit</button>
         </div>
     </div>
+
+    <script>
+        const quizData = [
+            {
+                question: "What is the capital of France?",
+                options: {
+                    a: "Berlin",
+                    b: "Madrid",
+                    c: "Paris",
+                    d: "Rome"
+                },
+                answer: 2
+            },
+            {
+                question: "Which planet is known as the Red Planet?",
+                options: {
+                    a: "Earth",
+                    b: "Mars",
+                    c: "Jupiter",
+                    d: "Saturn"
+                },
+                answer: 1
+            },
+            {
+                question: "What is the largest ocean on Earth?",
+                options: {
+                    a: "Atlantic Ocean",
+                    b: "Indian Ocean",
+                    c: "Arctic Ocean",
+                    d: "Pacific Ocean"
+                },
+                answer: 3
+            },
+            {
+                question: "Who wrote 'Romeo and Juliet'?",
+                options: {
+                    a: "Charles Dickens",
+                    b: "William Shakespeare",
+                    c: "Mark Twain",
+                    d: "Jane Austen"
+                },
+                answer: 1
+            },
+            {
+                question: "What is the chemical symbol for gold?",
+                options: {
+                    a: "Au",
+                    b: "Ag",
+                    c: "Pb",
+                    d: "Fe"
+                },
+                answer: 0
+            },
+            {
+                question: "Which gas do plants absorb from the atmosphere?",
+                options: {
+                    a: "Oxygen",
+                    b: "Carbon Dioxide",
+                    c: "Nitrogen",
+                    d: "Hydrogen"
+                },
+                answer: 1
+            }
+        ];
+
+        const questionElement = document.getElementById("question");
+        const optionstag = {
+            a: document.getElementById("option_1"),
+            b: document.getElementById("option_2"),
+            c: document.getElementById("option_3"),
+            d: document.getElementById("option_4")
+        };
+        const answertag = document.querySelectorAll(".answer");
+        const submitButton = document.getElementById("submit");
+
+        let currentQuestion = 0;
+        let score = 0;
+
+        const loadQuiz = () => {
+            deselectAnswers();
+            const currentQuizData = quizData[currentQuestion];
+            questionElement.innerText = currentQuizData.question;
+
+            let i = 0;
+            for (const key in optionstag) {
+                optionstag[key].innerText = currentQuizData.options[key];
+                answertag[i].setAttribute('data-index', i);
+                i++;
+            }
+        };
+
+        const deselectAnswers = () => {
+            answertag.forEach(input => input.checked = false);
+        };
+
+        const getSelected = () => {
+            let selectedIndex = null;
+            answertag.forEach((input) => {
+                if (input.checked) {
+                    selectedIndex = parseInt(input.getAttribute('data-index'));
+                }
+            });
+            return selectedIndex;
+        };
+
+        submitButton.addEventListener("click", () => {
+            const selected = getSelected();
+            if (selected !== null) {
+                if (selected === quizData[currentQuestion].answer) {
+                    score++;
+                }
+                currentQuestion++;
+
+                if (currentQuestion < quizData.length) {
+                    loadQuiz();
+                } else {
+                    document.querySelector(".quiz").innerHTML = `
+                        <h2>You scored ${score} out of ${quizData.length}</h2>
+                        <button class="btn" onclick="location.reload()">Restart Quiz</button>
+                    `;
+                }
+            }
+        });
+
+        loadQuiz();
+    </script>
 </body>
-<!-- <script src="script.js"></script> -->
- <script>
-    // Question and Options are stored in an array of objects
-const quizData = [
-    {
-        question: "What is the capital of France?",
-        options : {
-            a: "Berlin",
-            b: "Madrid",
-            c: "Paris",
-            d: "Rome"
-        },
-        answer: 2
-    }
-    ,
-    {
-        question: "Which planet is known as the Red Planet?",
-        options : {
-            a: "Earth",
-            b: "Mars",
-            c: "Jupiter",
-            d: "Saturn"
-        },
-        answer: 1
-    },
-    {
-        question: "What is the largest ocean on Earth?",
-        options : {
-            a: "Atlantic Ocean",
-            b: "Indian Ocean",
-            c: "Arctic Ocean",
-            d: "Pacific Ocean"
-        },
-        answer: 3
-    },
-    {
-        question: "Who wrote 'Romeo and Juliet'?",
-        options : {
-            a: "Charles Dickens",
-            b: "William Shakespeare",
-            c: "Mark Twain",
-            d: "Jane Austen"
-        },
-        answer: 1
-    }
-    ,
-    {
-        question: "What is the chemical symbol for gold?",
-        options : {
-            a: "Au",
-            b: "Ag",
-            c: "Pb",
-            d: "Fe"
-        },
-        answer: 0
-    },
-    {
-        question: "Which gas do plants absorb from the atmosphere?",
-        options : {
-            a: "Oxygen",
-            b: "Carbon Dioxide",
-            c: "Nitrogen",
-            d: "Hydrogen"
-        },
-        answer: 1
-    }
-]
-
-// Selectors for the quiz elements (refrence the HTML elements)
-const questionElement = document.getElementById("question");
-const optionstag = {
-    a   : document.getElementById("option_1"),
-    b   : document.getElementById("option_2"),
-    c   : document.getElementById("option_3"),
-    d   : document.getElementById("option_4")
-};
-const answertag = document.querySelectorAll(".answer");
-// console.log(`answer : ${answer}`);
-const submitButton = document.getElementById("submit");
-// const resultElement = document.getElementById("result");
-
-let currentQuestion = 0;
-let score = 0;
-
-
-const loadQuiz = () => {
-    // deselectAnswers();
-    const currentQuizData = quizData[currentQuestion];
-    // console.log(currentQuizData); // compleate object
-    questionElement.innerText = currentQuizData.question;
-    // console.log(currentQuizData.question); // question text
-    
-
-    // Dynamically assign options
-    const optiondata = Object.keys(currentQuizData.options); // 
-    // console.log(optiondata); // ['a', 'b', 'c', 'd']
-    
-
-    let i = 0;
-    for (const key in optionstag) {
-        // console.log(key); // 'a', 'b', 'c', 'd'
-        optionstag[key].innerText = currentQuizData.options[key];
-        // console.log(currentQuizData.options); // {a: 'Berlin', b: 'Madrid', c: 'Paris', d: 'Rome'}
-        
-        // Assign custom data-index for answer validation
-        answertag[i].setAttribute('data-index', i);  
-        i++;
-    }
-    
-}
-console.log(answertag); // {a: div#option_1, b: div#option_2, c: div#option_3, d: div#option_4}
-console.log(typeof answertag); // object
-
-// Function to deselect all answers
-let answer;
-const deselectAnswers = () => {
-    // answertag.forEach(answer => {
-    //     answer.checked = false;
-    // });
-    i = 0;
-    for (const key in answertag) {
-        console.log(key); // 'a', 'b', 'c', 'd'
-        answertag[key].checked = false;
-        // Assign custom data-index for answer validation
-        answertag[i].setAttribute('data-index', i);  
-        i++;
-    }
-}
-
-
-// Function to get the selected answer
-const getSelected = () => {
-    let selectedIndex = null;
-    // answertag.forEach(answer => {
-    //     if (answer.checked) {
-    //         selectedIndex = parseInt(answer.getAttribute('data-index'));
-    //     }
-    // });
-
-    let i = 0;
-    for (const key in answertag) {
-        // console.log(key); // 'a', 'b', 'c', 'd'
-        if (answertag[key].checked) {
-            selectedIndex = parseInt(answertag[i].getAttribute('data-index')); // parseInt convert string to number
-            // console.log(selectedIndex); // 0, 1, 2, 3
-        }
-        i++;
-    }
-
-    return selectedIndex; // return the selected answer index like 0, 1, 2, 3
-}
-
-// Function to handle the submit button click
-submitButton.addEventListener("click", () => {
-    const selected = getSelected();
-    // console.log(selected); // selected answer index
-
-    if (selected !== null) {
-        if (selected === quizData[currentQuestion].answer) {
-            score++;
-        }
-        currentQuestion++;
-        if (currentQuestion < quizData.length) {
-            loadQuiz();
-            deselectAnswers ();
-        } else {
-            // Display result
-            alert(`You scored ${score} out of ${quizData.length}`);
-            // Reset the quiz
-            currentQuestion = 0;
-            score = 0;
-            loadQuiz();
-        }
-    }
-});
-
-// Load initial question
-
-
-
-loadQuiz();
-
- </script>
 </html>
